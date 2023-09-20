@@ -80,3 +80,4 @@ D:\Visual Studio Projects\Web Application\CarInsurance\CarInsurance\CarInsurance
 D:\Visual Studio Projects\Web Application\CarInsurance\CarInsurance\CarInsurance\obj\Debug\CarInsurance.csproj.CopyComplete
 D:\Visual Studio Projects\Web Application\CarInsurance\CarInsurance\CarInsurance\obj\Debug\CarInsurance.dll
 D:\Visual Studio Projects\Web Application\CarInsurance\CarInsurance\CarInsurance\obj\Debug\CarInsurance.pdb
+D:\Visual Studio Projects\Web Application\CarInsurance\CarInsurance\CarInsurance\obj\Debug\CarInsurance.csproj.AssemblyReference.cache

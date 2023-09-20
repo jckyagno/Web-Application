@@ -50,21 +50,29 @@ namespace CarInsurance.Controllers
         {
 
             decimal quote = insuree.Quote;
+            int age = 0;
+            age = DateTime.Now.Year - insuree.DateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < insuree.DateOfBirth.DayOfYear)
+            {
+                age -= 1;
+            }
             //Start with a base of $50 / month.
             quote = 50.00m;
 
             //If the user is 18 or under, add $100 to the monthly total.
-            if (insuree.DateOfBirth > DateTime.Now.AddYears(-18))
+            //if (insuree.DateOfBirth > DateTime.Now.AddYears(-18))
+            if (age <= 18)
             { 
                 quote += 100.00m;
             }
             //If the user is from 19 to 25, add $50 to the monthly total.
-            else if (insuree.DateOfBirth >= DateTime.Now.AddYears(-18) && insuree.DateOfBirth <= DateTime.Now.AddYears(-25))
+            //else if (insuree.DateOfBirth <= DateTime.Now.AddYears(-18) && insuree.DateOfBirth >= DateTime.Now.AddYears(-25))
+            else if (age > 18 && age < 25)
             {
                 quote += 50.00m;
             }
             //If the user is 26 or older, add $25 to the monthly total. Double check your code to ensure all ages are covered.
-            else if (insuree.DateOfBirth < DateTime.Now.AddYears(-25))
+            else if (age >= 26)
             {
                 quote += 25.00m;
             }
@@ -143,6 +151,76 @@ namespace CarInsurance.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailAddress,DateOfBirth,CarYear,CarMake,CarModel,DUI,SpeedingTickets,CoverageType,Quote")] Insuree insuree)
         {
+            decimal quote = insuree.Quote;
+            int age = 0;
+            age = DateTime.Now.Year - insuree.DateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < insuree.DateOfBirth.DayOfYear)
+            {
+                age -= 1;
+            }
+            //Start with a base of $50 / month.
+            quote = 50.00m;
+
+            //If the user is 18 or under, add $100 to the monthly total.
+            //if (insuree.DateOfBirth > DateTime.Now.AddYears(-18))
+            if (age <= 18)
+            {
+                quote += 100.00m;
+            }
+            //If the user is from 19 to 25, add $50 to the monthly total.
+            //else if (insuree.DateOfBirth <= DateTime.Now.AddYears(-18) && insuree.DateOfBirth >= DateTime.Now.AddYears(-25))
+            else if (age > 18 && age < 25)
+            {
+                quote += 50.00m;
+            }
+            //If the user is 26 or older, add $25 to the monthly total. Double check your code to ensure all ages are covered.
+            else if (age >= 26)
+            {
+                quote += 25.00m;
+            }
+
+            //If the car's year is before 2000, add $25 to the monthly total.
+            if (insuree.CarYear < 2000)
+            {
+                quote += 25.00m;
+            }
+            //If the car's year is after 2015, add $25 to the monthly total.
+            else if (insuree.CarYear > 2015)
+            {
+                quote += 25.00m;
+            }
+
+            //If the car's Make is a Porsche, add $25 to the price.
+            if (insuree.CarMake == "Porsche")
+            {
+                quote += 25.00m;
+            }
+
+            //If the car's Make is a Porsche and its model is a 911 Carrera, add an additional $25 to the price. (Meaning, this specific car will add a total of $50 to the price.)
+            if (insuree.CarMake == "Porsche" && insuree.CarModel == "911 Carrera")
+            {
+                quote += 25.00m;
+            }
+
+            //Add $10 to the monthly total for every speeding ticket the user has.
+            quote += (10.00m * insuree.SpeedingTickets);
+
+            //If the user has ever had a DUI, add 25 % to the total.
+            if (insuree.DUI == true)
+            {
+                decimal a = 1.25m;
+                quote = quote * a;
+            }
+
+            //If it's full coverage, add 50% to the total.
+            if (insuree.CoverageType == true)
+            {
+                decimal a = 1.50m;
+                quote = quote * a;
+            }
+
+            insuree.Quote = quote;
+
             if (ModelState.IsValid)
             {
                 db.Entry(insuree).State = EntityState.Modified;
