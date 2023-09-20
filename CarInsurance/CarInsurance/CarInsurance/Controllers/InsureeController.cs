@@ -162,13 +162,11 @@ namespace CarInsurance.Controllers
             quote = 50.00m;
 
             //If the user is 18 or under, add $100 to the monthly total.
-            //if (insuree.DateOfBirth > DateTime.Now.AddYears(-18))
             if (age <= 18)
             {
                 quote += 100.00m;
             }
             //If the user is from 19 to 25, add $50 to the monthly total.
-            //else if (insuree.DateOfBirth <= DateTime.Now.AddYears(-18) && insuree.DateOfBirth >= DateTime.Now.AddYears(-25))
             else if (age > 18 && age < 25)
             {
                 quote += 50.00m;
