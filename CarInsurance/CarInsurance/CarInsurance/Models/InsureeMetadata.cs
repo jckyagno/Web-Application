@@ -7,5 +7,6 @@ namespace CarInsurance.Models
 {
     public class InsureeMetadata
     {
+
     }
 }

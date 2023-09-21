@@ -1,0 +1,7 @@
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\WebApplication3.exe
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\WebApplication3.dll
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\WebApplication3.deps.json
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\WebApplication3.runtimeconfig.json
+D:\Visual Studio Projects\Web Application\WebApplication3\WebApplication3\obj\Release\net6.0\PubTmp\Out\WebApplication3.pdb
